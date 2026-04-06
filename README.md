@@ -9,7 +9,6 @@ This project demonstrates how users can register, log in, and manage their accou
 
 **Name:** Adil Shah  
 **Email:** asadilshah919@gmail.com  
-**Phone:** 8881013340  
 **Location:** Mumbai, India
 
 ---
