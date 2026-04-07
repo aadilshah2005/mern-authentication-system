@@ -1,15 +1,42 @@
 import { Link } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
 // import { useState } from "react";
 function Login() {
   // const [isOpen, setIsOpen] = useState(true);
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async () => {
+    try {
+      const res = await axios.post(
+        "http://localhost:3000/api/auth/login",
+        {
+          email,
+          password,
+        },
+        {
+          withCredentials: true,
+        },
+      );
+      console.log("Login Data: ", res.data);
+      navigate("/");
+      const name = res.data.user.name;
+      const firstLatter = name.charAt(0).toUpperCase();
+      localStorage.setItem("userName", firstLatter);
+      window.location.reload();
+      console.log(name);
+    } catch (error) {
+      console.log("Error: ", error.message);
+    }
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       {/* {isOpen && ( */}
       <div className="relative bg-white p-10 rounded-2xl shadow-lg w-105 border border-gray-200">
- 
         <IoClose
           onClick={() => navigate("/")}
           className="absolute top-4 right-4 text-2xl text-gray-500 cursor-pointer hover:text-gray-700"
@@ -32,6 +59,8 @@ function Login() {
             type="email"
             placeholder="Enter your email"
             className="w-full border border-gray-200 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="mb-6">
@@ -43,11 +72,15 @@ function Login() {
             type="password"
             placeholder="Enter your password"
             className="w-full border border-gray-200 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
-        
-        <button className="w-full bg-indigo-500 text-white py-2 rounded-lg hover:bg-indigo-600 transition">
+        <button
+          onClick={handleSubmit}
+          className="w-full bg-indigo-500 text-white py-2 rounded-lg hover:bg-indigo-600 transition"
+        >
           Login
         </button>
 

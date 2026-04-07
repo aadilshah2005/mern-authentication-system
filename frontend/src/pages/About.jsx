@@ -13,7 +13,8 @@ function About() {
         </p>
       </div>
 
-      <div className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm mb-10">
+      
+      <div className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm mb-10 transition duration-300 transform hover:-translate-y-1 hover:shadow-md">
         <h2 className="text-2xl font-semibold mb-3">Project Purpose</h2>
 
         <p className="text-gray-600">
@@ -23,8 +24,10 @@ function About() {
           understanding authentication systems in modern web development.
         </p>
       </div>
+
+      
       <div className="grid md:grid-cols-3 gap-6">
-        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm transition duration-300 transform hover:-translate-y-1 hover:shadow-md">
           <h3 className="font-semibold mb-2">Frontend</h3>
           <p className="text-gray-600 text-sm">
             React.js and Tailwind CSS are used to build a modern and responsive
@@ -32,7 +35,7 @@ function About() {
           </p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm transition duration-300 transform hover:-translate-y-1 hover:shadow-md">
           <h3 className="font-semibold mb-2">Backend</h3>
           <p className="text-gray-600 text-sm">
             Node.js and Express.js handle the authentication APIs including
@@ -40,7 +43,7 @@ function About() {
           </p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm transition duration-300 transform hover:-translate-y-1 hover:shadow-md">
           <h3 className="font-semibold mb-2">Database</h3>
           <p className="text-gray-600 text-sm">
             MongoDB is used to store user information securely and manage
